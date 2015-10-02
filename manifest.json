@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "File System for HAPI",
+  "description": "This app adds HAPI files and folders to Chrome's file browser",
+  "version": "1.4",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "https://*.fullarmoradanywhere.com/",
+    "https://*.hapidevelopment.com/",
+    "storage",
+    "fileSystemProvider",
+    "unlimitedStorage"
+  ],
+  "app": {
+    "background": {
+      "scripts": [
+        "FSPCache.js",
+        "HAPIClient.js",
+        "HAPIFSProvider.js",
+        "background.js"
+      ]
+    }
+  },
+  "file_system_provider_capabilities": {
+    "configurable": true,
+    "source": "network"
+  },
+  "minimum_chrome_version": "42"  
+}

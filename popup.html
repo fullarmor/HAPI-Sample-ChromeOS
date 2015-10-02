@@ -1,0 +1,72 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+      }
+      .logo {
+        height: 80px;
+        margin: 20px;
+      }
+    </style>
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="jquery.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class="modal-dialog" style="max-width: 400px;">
+      <div class="modal-content" style="background: #ebebeb;">
+        <div class="modal-body CenterH300" id="login" style="padding: 6px 12px; font-size: 14px; line-height: 1.42857; text-align: center; display: none;">
+          <img class="modal-body centerH300" src="/images/hapi.png"><br>
+          Log in using your Active Directory account.<br>
+          <form>
+            <div class="row CenterH300" style="margin: 0 auto; padding-top: 7px; width: 100%;">
+                <input class="input form-control" type="text" id="gatekeeper" placeholder="Gatekeeper URL" value="https://sandbox.fullarmorhapi.com/"><br>
+            </div>
+            <div class="row CenterH300" style="margin: 0 auto; padding-top: 7px; width: 100%;">
+              <input class="input form-control" type="text" id="username" placeholder="Username" value="sandbox\administrator"><br>
+            </div>
+            <div class="row CenterH300" style="margin: 0 auto; padding-top: 7px; width: 100%;">
+              <input class="input form-control" type="password" id="password" placeholder="Password" value=""><br>
+            </div>
+            <div class="row centerH300" id="error"></div>
+            <div class="row CenterH300" style="margin: 0 auto; padding-top: 7px; width: 100%;">
+              <input class="input form-control" type="button" id="loginButton" value="Log in" style="width: 10em; height: 3em; margin-left: auto; margin-right: auto; background-color: #2a92e3; color: white;">
+            </div>
+          </form>
+        </div>
+        <div class="modal-body CenterH300" id="main" style="padding: 6px 12px; font-size: 14px; line-height: 1.42857; text-align: center; display: none;">
+          <img class="modal-body centerH300" src="/images/hapi.png">
+          <div class="row CenterH300" id="body"></div>
+          <hr>
+          <div class="row CenterH300">
+            <input class="input form-control" type="button" id="logoutButton" value="Log out" style="width: 10em; height: 3em; margin-left: auto; margin-right: auto; background-color: #2a92e3; color: white;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <img id="image-result" hidden>
+  </body>
+</html>
+
